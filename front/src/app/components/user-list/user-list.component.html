@@ -1,0 +1,123 @@
+<div class="container">
+  
+  <div class="row">
+    <div class="col-md-4 offset-md-1">
+      <span><h2 class="text-center"> Add user </h2></span>
+      <div class="card">
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <input type="text" name="name"  id= "nameInput" placeholder="Nombre" class="form-control" [(ngModel)] = "user.nombre" autofocus>
+            </div>
+            <button class ="btn btn-success btn-block" (click)="edit ? updatedTeam() : saveNewUser()">
+              Save
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 offset-md-1"> 
+      <span><h2 class="text-center"> Users table </h2></span>
+      <div class="table-wrapper-scroll-y">
+        <table class = "table table-striped table-sm">
+          <thead class="text-center">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Meetings</th>
+              <th>Erase</th>
+            </tr>
+          </thead>
+          <tbody class="text-center"> 
+            <tr *ngFor = "let user of users">
+              <td> {{user.id}} </td>
+              <td> {{user.nombre}} </td>
+              <td>
+                <a [routerLink]= "['/users/meetings', user.id]" routerLinkeActive="active" class ="btn btn-info  btn-sm" alt="meetings">
+                    <i class="far fa-edit"></i>
+                </a>
+              </td>
+              <td>
+                <button class ="btn btn-danger  btn-sm" (click)="deleteUser(user.id)" alt="Erase User">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 offset-md-1">
+      <span><h2 class="text-center"> search available users </h2></span>
+      <div class="card">
+        <div class="card-body">
+          <form>
+            <div class="form-group row">
+              <div class="col-6">
+                <span>Start Time:</span>
+                <input class="form-control" type="time" name="start" [(ngModel)] = "available.start">
+              </div>
+              <div class="col-6">
+                <span>Start Time:</span>
+                <input class="form-control" type="time" name ="end" [(ngModel)] = "available.end">    
+              </div>
+            </div>
+            <div class="col-13">
+              <button class="btn btn-outline-primary btn-block" (click) = "getAvailableUsers()" type="button"> Get Available Users </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 offset-md-1"> 
+        <p></p>
+        <span><h2 class="text-center"> Meetings </h2></span>
+        <div class="table-wrapper-scroll-y">
+          <table class = "table table-striped table-sm">
+            <thead class="text-center">
+              <tr>
+                <th>ID Meeting</th>
+                <th>User</th>
+                <th>Meeting Hour</th>
+              </tr>
+            </thead>
+            <tbody class="text-center"> 
+              <tr *ngFor = "let meet of meetings">
+                <td> {{meet.meeting_id}}</td>
+                <td> {{meet.nombre}} </td>
+                <td> {{meet.meeting_time}} </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 offset-md-1">
+      <p></p>
+      <span><h2 class="text-center"> Available Users </h2></span>
+      <div class="table">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID USER</th>
+              <th>User</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let userA of usersA">
+              <td>{{userA.id}}</td>
+              <td>{{userA.nombre}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+  </div>
+
+</div>

@@ -1,0 +1,44 @@
+<div class="container">
+  <h3>
+    User : {{user.nombre}}
+  </h3>
+</div>
+<div class="container">
+  <form>
+    <div class="form-group row">
+        <div class="col-3">
+          <input class="form-control" id ="time" type="time" name="meeting_time" [(ngModel)] = "meet.meeting_time" autofocus>
+        </div>
+        <div class="col-7">
+          <button class="btn btn-outline-primary" type="button"  (click)="addMeeting()"> Add Metting </button>
+        </div>
+    </div>
+  </form>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12"> 
+        <div class="table-wrapper2-scroll-y">
+          <table class = "table table-striped">
+            <thead class="text-center">
+              <tr>
+                <th>ID Metting</th>
+                <th>HOUR</th>
+                <th>Erase</th>
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              <tr *ngFor = "let meet of meetings">
+                <th>{{meet.meeting_id}}</th>
+                <th>{{meet.meeting_time}}</th>
+                <th>
+                  <button class="btn btn-danger btn-sm" type="button" id="{{meet.meeting_id}}" (click)="eraseMeet($event)"> Erase </button>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>
+</div>
+
