@@ -46,7 +46,5 @@ ng serve
 
 ![imagen3](https://user-images.githubusercontent.com/20478027/51875337-281b7f00-232a-11e9-8c07-41c570a5e5aa.png)
 
-## Explicación 
-En el siguiente trabajo se realizo una aplicacion web, en el cual se guardaban los datos en una  base de datos relacional MYSQL de una forma ordenada, para luego ser implementada una REST API donde un servicio web diseñado en ANGULAR consumiera esa información y fuese accesible por medio de metodos de GET / POST / DELETE / PUT. 
-Obteniendo los datos y resultados por medio de querys que se encuentra en los archivos de controladores del servidor (/controllers).
-Y definiendo sus metodos en el archivo de rutas (/routes).
+## Explanation 
+In the following work a Web application was made, in which the data were stored in a MYSQL relational database in an orderly manner, and then a REST API was implemented where a Web service designed in angular consumed that information and was Accessible by means of GET/POST/DELETE/PUT methods. Obtaining data and results by means of Querys found in the server driver files (/controllers). and defining its methods in the route file (/routes).
